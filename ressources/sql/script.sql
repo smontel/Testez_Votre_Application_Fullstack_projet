@@ -1,3 +1,10 @@
+DROP DATABASE yogadb;
+
+CREATE DATABASE yogadb;
+
+USE yogadb;
+
+
 CREATE TABLE `TEACHERS` (
   `id` INT PRIMARY KEY AUTO_INCREMENT,
   `last_name` VARCHAR(40),

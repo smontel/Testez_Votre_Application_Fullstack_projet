@@ -5,8 +5,8 @@ export default {
     rules: [
       {
         test: /\.(js|ts)$/,
-        loader: '@jsdevtools/coverage-istanbul-loader',
-        options: { esModules: true },
+        loader: 'babel-loader',
+        options: { plugins: ['istanbul'] },
         enforce: 'post',
         include: path.join(__dirname, '..', 'src'),
         exclude: [
