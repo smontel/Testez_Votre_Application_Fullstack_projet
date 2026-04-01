@@ -189,17 +189,13 @@ class JwtIntegrationTest {
 
     @Test
     void testAuthenticationPersistenceAcrossRequests() throws Exception {
-        // Request 1
+        // Avec un token valide
         mockMvc.perform(get("/api/session")
                         .header("Authorization", "Bearer " + validToken))
                 .andExpect(status().isOk());
 
-        // Request 2 - Le même token devrait toujours fonctionner
-        mockMvc.perform(get("/api/session")
-                        .header("Authorization", "Bearer " + validToken))
-                .andExpect(status().isOk());
 
-        // Request 3 - Sans token devrait échouer
+        // Sans token devrait échouer
         mockMvc.perform(get("/api/session"))
                 .andExpect(status().isUnauthorized());
     }

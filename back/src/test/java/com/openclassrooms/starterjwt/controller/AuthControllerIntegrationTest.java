@@ -178,7 +178,6 @@ class AuthControllerIntegrationTest {
 
     @Test
     void testRegisterWithInvalidData() throws Exception {
-        // TODO: Testez un enregistrement avec des données invalides
 
          SignupRequest signupRequest = new SignupRequest();
          signupRequest.setEmail("");
@@ -194,7 +193,6 @@ class AuthControllerIntegrationTest {
 
     @Test
     void testRegisterWithInvalidEmailFormat() throws Exception {
-        // TODO: Testez avec un format d'email invalide
 
         SignupRequest signupRequest = new SignupRequest();
         signupRequest.setEmail("yogastudio.com");
