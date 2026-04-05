@@ -34,9 +34,10 @@ public class UserServiceTest {
 
         when(userRepository.findById(1L)).thenReturn(Optional.of(u));
 
-        Optional<User> user = userRepository.findById(1L);
+        User user = userService.findById(1L);
 
-        assertThat(user).isPresent().contains(u);
+        assertThat(user).isNotNull();
+        assertThat(user).isEqualTo(u);
     }
 
     @Test

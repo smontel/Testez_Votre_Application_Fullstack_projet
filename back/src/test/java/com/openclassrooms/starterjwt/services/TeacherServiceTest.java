@@ -38,7 +38,7 @@ public class TeacherServiceTest {
 
         when(teacherRepository.findAll()).thenReturn(Arrays.asList(t1, t2));
 
-        List<Teacher> teachers = teacherRepository.findAll();
+        List<Teacher> teachers = teacherService.findAll();
 
 
         assertThat(teachers).hasSize(2).containsExactly(t1, t2);
@@ -53,8 +53,9 @@ public class TeacherServiceTest {
 
         when(teacherRepository.findById(1L)).thenReturn(Optional.of(t));
 
-        Optional<Teacher> teacher = teacherRepository.findById(1L);
+        Teacher teacher = teacherService.findById(1L);
 
-        assertThat(teacher).isPresent().contains(t);
+        assertThat(teacher).isNotNull();
+        assertThat(teacher).isEqualTo(t);
     }
 }
